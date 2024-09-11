@@ -59,3 +59,21 @@ body {
   justify-content: flex-end;
   padding: 20px 20px 20px 10px;
 }
+.List-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.Item-selection-info {
+  margin-top: 8px; 
+  font-size: 14px; 
+  color: #666; 
+  display: flex; 
+  justify-content: flex-start; 
+  width: 200px;
+  overflow: hidden; 
+}
+
+.Item-selection-text {
+  font-weight: bold; 
+}

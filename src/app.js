@@ -2,6 +2,24 @@ import React from 'react';
 import './styles.css';
 
 /**
+ * Функция для склонения слова "раз" в зависимости от числа
+ * @param count {number}
+ * @returns {string}
+ */
+function pluralize(count) {
+  const remainder10 = count % 10;
+  const remainder100 = count % 100;
+
+  if (remainder10 === 1 && remainder100 !== 11) {
+    return 'раз';
+  } else if (remainder10 >= 2 && remainder10 <= 4 && (remainder100 < 12 || remainder100 > 14)) {
+    return 'раза';
+  } else {
+    return 'раз';
+  }
+}
+
+/**
  * Приложение
  * @param store {Store} Состояние приложения
  * @returns {React.ReactElement}
@@ -27,11 +45,13 @@ function App({ store }) {
               >
                 <div className="Item-code">{item.code}</div>
                 <div className="Item-title">{item.title}</div>
-                {item.selectionCount > 0 && (
-                  <div className="Item-selection-count">
-                    Выделяли {item.selectionCount} раз
-                  </div>
-                )}
+                <div className="Item-selection-info">
+                  {item.selectionCount > 0 && (
+                    <span className="Item-selection-text">
+                      Выделяли {item.selectionCount} {pluralize(item.selectionCount)}
+                    </span>
+                  )}
+                </div>
                 <div className="Item-actions">
                   <button onClick={() => store.deleteItem(item.code)}>Удалить</button>
                 </div>

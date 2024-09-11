@@ -3,26 +3,28 @@
  */
 class Store {
   constructor(initState = {}) {
-    // Инициализируем maxCode как максимальный код из начального списка или 0, если список пуст
     const initialMaxCode = (initState.list || []).reduce((max, item) => Math.max(max, item.code), 0);
+    const initialList = (initState.list || []).map(item => ({
+      ...item,
+      selectionCount: item.selectionCount || 0, 
+    }));
 
     this.state = {
       ...initState,
-      selectedCode: null, // Добавляем состояние для хранения кода выбранной записи
-      maxCode: initialMaxCode, // Хранение максимального кода
+      list: initialList,
+      selectedCode: null,
+      maxCode: initialMaxCode, 
     };
-    this.listeners = []; // Слушатели изменений состояния
+    this.listeners = []; 
   }
 
   /**
-   * Подписка слушателя на изменения состояния
    * @param listener {Function}
-   * @returns {Function} Функция отписки
+   * @returns {Function} 
    */
   subscribe(listener) {
     this.listeners.push(listener);
-    // Возвращается функция для удаления добавленного слушателя
-    return () => {
+      return () => {
       this.listeners = this.listeners.filter(item => item !== listener);
     };
   }
@@ -41,7 +43,6 @@ class Store {
    */
   setState(newState) {
     this.state = newState;
-    // Вызываем всех слушателей
     for (const listener of this.listeners) listener();
   }
 
@@ -86,12 +87,9 @@ class Store {
     const selectedCode = this.state.selectedCode === code ? null : code;
     const list = this.state.list.map(item => {
       if (item.code === code) {
-        // Переключаем выделение только если запись уже выделена
         item.selected = !item.selected;
-        // Увеличиваем счетчик выделений
         item.selectionCount = item.selected ? item.selectionCount + 1 : item.selectionCount;
       } else {
-        // Сбрасываем выделение для всех других записей
         item.selected = false;
       }
       return item;
