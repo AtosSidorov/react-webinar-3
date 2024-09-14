@@ -2,20 +2,21 @@ import React from 'react';
 import './styles.css';
 
 /**
- * Функция для склонения слова "раз" в зависимости от числа
- * @param count {number}
- * @returns {string}
+ * Универсальная функция для склонения слова в зависимости от числа
+ * @param count {number} - Число, к которому нужно применить склонение
+ * @param forms {string[]} - Массив форм слова: ['единственная форма', 'множественная форма для 2-4', 'множественная форма для 5 и больше']
+ * @returns {string} - Правильная форма слова
  */
-function pluralize(count) {
+function pluralize(count, forms) {
   const remainder10 = count % 10;
   const remainder100 = count % 100;
 
   if (remainder10 === 1 && remainder100 !== 11) {
-    return 'раз';
+    return forms[0]; // для числа, оканчивающегося на 1 (кроме 11)
   } else if (remainder10 >= 2 && remainder10 <= 4 && (remainder100 < 12 || remainder100 > 14)) {
-    return 'раза';
+    return forms[1]; // для чисел 2-4 (кроме 12-14)
   } else {
-    return 'раз';
+    return forms[2]; // для чисел 5 и выше
   }
 }
 
@@ -48,7 +49,7 @@ function App({ store }) {
                 <div className="Item-selection-info">
                   {item.selectionCount > 0 && (
                     <span className="Item-selection-text">
-                      Выделяли {item.selectionCount} {pluralize(item.selectionCount)}
+                      Выделяли {item.selectionCount} {pluralize(item.selectionCount, ['раз', 'раза', 'раз'])}
                     </span>
                   )}
                 </div>
