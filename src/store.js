@@ -3,28 +3,25 @@
  */
 class Store {
   constructor(initState = {}) {
-    const initialMaxCode = (initState.list || []).reduce((max, item) => Math.max(max, item.code), 0);
-    const initialList = (initState.list || []).map(item => ({
-      ...item,
-      selectionCount: item.selectionCount || 0, 
-    }));
-
     this.state = {
       ...initState,
-      list: initialList,
+      list: (initState.list || []).map(item => ({
+        ...item,
+        selectionCount: item.selectionCount || 0,
+      })),
       selectedCode: null,
-      maxCode: initialMaxCode, 
+      nextCode: (initState.list || []).reduce((max, item) => Math.max(max, item.code), 0) + 1, // Инициализируем счетчик кодов
     };
-    this.listeners = []; 
+    this.listeners = [];
   }
 
   /**
    * @param listener {Function}
-   * @returns {Function} 
+   * @returns {Function}
    */
   subscribe(listener) {
     this.listeners.push(listener);
-      return () => {
+    return () => {
       this.listeners = this.listeners.filter(item => item !== listener);
     };
   }
@@ -47,18 +44,25 @@ class Store {
   }
 
   /**
+   * Генерация нового уникального кода
+   * @returns {number}
+   */
+  getNextCode() {
+    return this.state.nextCode++;
+  }
+
+  /**
    * Добавление новой записи
    */
   addItem() {
-    const newCode = this.state.maxCode + 1;
+    const newCode = this.getNextCode();
 
     this.setState({
       ...this.state,
       list: [
         ...this.state.list,
-        { code: newCode, title: 'Новая запись', selectionCount: 0 }, // Добавляем поле selectionCount
+        { code: newCode, title: 'Новая запись', selectionCount: 0 },
       ],
-      maxCode: newCode,
     });
   }
 
@@ -68,14 +72,10 @@ class Store {
    */
   deleteItem(code) {
     const filteredList = this.state.list.filter(item => item.code !== code);
-    const maxCode = filteredList.length > 0
-      ? Math.max(...filteredList.map(item => item.code))
-      : 0;
 
     this.setState({
       ...this.state,
       list: filteredList,
-      maxCode: maxCode,
     });
   }
 
