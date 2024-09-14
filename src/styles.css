@@ -31,6 +31,9 @@ body {
 }
 
 .List-item {
+  display: flex;
+  flex-direction: row; /* Элементы расположены в строку */
+  align-items: center; /* Вертикальное выравнивание по центру */
   border-bottom: 1px dashed #ccc;
 }
 
@@ -38,6 +41,7 @@ body {
   display: flex;
   justify-content: flex-start;
   transition: background-color 1s;
+  width: 100%; /* Для правильного распределения ширины */
 }
 
 .Item_selected {
@@ -50,30 +54,24 @@ body {
 }
 
 .Item-title {
-  width: 100%;
+  width: calc(100% - 100px); /* Учитываем ширину элемента .Item-actions */
   padding: 20px 10px;
+  display: flex; /* Для размещения текста и информации о выделениях в одной строке */
+  align-items: center; /* Вертикальное выравнивание по центру */
+}
+
+.Item-selection-info {
+  font-size: 14px; 
+  color: #666; 
+  margin-left: 10px; /* Отступ от названия записи */
+}
+
+.Item-selection-text {
+  font-weight: bold;
 }
 
 .Item-actions {
   display: flex;
   justify-content: flex-end;
   padding: 20px 20px 20px 10px;
-}
-.List-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.Item-selection-info {
-  margin-top: 8px; 
-  font-size: 14px; 
-  color: #666; 
-  display: flex; 
-  justify-content: flex-start; 
-  width: 200px;
-  overflow: hidden; 
-}
-
-.Item-selection-text {
-  font-weight: bold; 
 }

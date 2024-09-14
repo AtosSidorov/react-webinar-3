@@ -45,11 +45,11 @@ function App({ store }) {
                 onClick={() => store.selectItem(item.code)}
               >
                 <div className="Item-code">{item.code}</div>
-                <div className="Item-title">{item.title}</div>
-                <div className="Item-selection-info">
+                <div className="Item-title">
+                  {item.title}
                   {item.selectionCount > 0 && (
-                    <span className="Item-selection-text">
-                      Выделяли {item.selectionCount} {pluralize(item.selectionCount, ['раз', 'раза', 'раз'])}
+                    <span className="Item-selection-info">
+                      | Выделяли {item.selectionCount} {pluralize(item.selectionCount, ['раз', 'раза', 'раз'])}
                     </span>
                   )}
                 </div>
