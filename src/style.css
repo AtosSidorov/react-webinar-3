@@ -1,0 +1,34 @@
+/* src/style.css */
+.Button {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    background-color: #EFEFEF;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80px;
+    height: 21px;    
+  }
+
+  .Head {
+    height: 80px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 0 20px;
+  }
+  
+  .Head h1 {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36.8px;
+    text-align: left;
+  }
+  

@@ -1,8 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { generateCode } from './utils.js';
-import App from './app.js';
-import Store from './store.js';
+import { generateCode } from './utils';
+import App from './app';
+import Store from './store';
+import './style.css';
+
 
 const store = new Store({
   list: [

@@ -1,0 +1,39 @@
+.CartInfo {
+    height: 80px; 
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    padding: 0 20px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.CartInfo-text {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: right;
+    margin-right: 10px; 
+}
+
+.CartInfo-text strong {
+    font-weight: 700;
+}
+
+.CartInfo-button {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: center;
+    padding: 8px 16px;
+    background-color: #EFEFEF;  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.CartInfo-button:hover {
+    background-color: #ddd;
+}
