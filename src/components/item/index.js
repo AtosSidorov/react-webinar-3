@@ -28,10 +28,10 @@ Item.propTypes = {
     code: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    quantity: PropTypes.number, // Опционально, если товар в корзине
+    quantity: PropTypes.number, 
   }).isRequired,
   onAddToCart: PropTypes.func.isRequired,
-  isInCart: PropTypes.bool, // Признак того, что товар находится в корзине
+  isInCart: PropTypes.bool, 
 };
 
 export default Item;

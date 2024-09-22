@@ -1,0 +1,30 @@
+.list-item-type1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px dashed #ccc;
+  }
+  
+  .item-number {
+    min-width: 40px; 
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .item-title {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .item-price {
+    min-width: 100px; 
+    text-align: right;
+    margin-right: 10px; 
+  }
+  
+  .item-button-container {
+    margin-right: 10px;
+  }
+  
+  

@@ -1,19 +1,22 @@
-/* src/style.css */
 .Button {
     font-family: Arial, sans-serif;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 13px; 
     line-height: 15px;
     text-align: center;
-    padding: 8px 16px;
+    padding: 8px 16px; 
     background-color: #EFEFEF;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 80px;
-    height: 21px;    
+    transition: background-color 0.3s;
+    color: #000;
+    width: 100px; 
   }
-
+  
+.Button:hover {
+    background-color: #DCDCDC;
+  }
+  
   .Head {
     height: 80px;
     background-color: #f5f5f5;
