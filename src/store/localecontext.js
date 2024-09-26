@@ -13,7 +13,7 @@ const translations = {
       next: 'Next',
       back: 'Back',
       items: 'pcs', 
-      remove: 'Remove', 
+      remove: 'Remove',
     },
     ru: {
       title: 'Магазин',
@@ -26,6 +26,7 @@ const translations = {
       back: 'Назад',
       items: 'шт', 
       remove: 'Удалить', 
+    }
   };
 
 // Создаем контекст для языка и переводов
