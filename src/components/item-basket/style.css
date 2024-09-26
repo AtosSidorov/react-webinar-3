@@ -1,4 +1,4 @@
-/* Пункт списка */
+
 .ItemBasket {
   display: flex;
   justify-content: flex-start;
@@ -27,4 +27,12 @@
   text-align: right;
   font-size: 18px;
   white-space: nowrap;
+}
+.ItemBasket-link {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.ItemBasket-link:hover .ItemBasket-title {
+  text-decoration: underline; 
 }

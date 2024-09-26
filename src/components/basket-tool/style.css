@@ -1,12 +1,35 @@
 /* Контрол с общими действиями */
 .BasketTool {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; 
+  align-items: center; 
   padding: 20px;
   font-size: 18px;
 }
 
+.BasketTool-left {
+  display: flex;
+  align-items: center;
+}
+
+.BasketTool-right {
+  display: flex;
+  align-items: center;
+}
+
+.BasketTool-back-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #0087E9; 
+  font-weight: normal;
+}
+
+.BasketTool-back-link:hover {
+  text-decoration: underline;
+}
+
 .BasketTool-label {
+  /* Дополнительные стили, если нужно */
 }
 
 .BasketTool-total {

@@ -10,19 +10,39 @@ class Catalog extends StoreModule {
   initState() {
     return {
       list: [],
+      total: 0, // Общее количество товаров
+      currentPage: 1, // Текущая страница
+      itemsPerPage: 10, // Количество товаров на странице
     };
   }
 
-  async load() {
-    const response = await fetch('/api/v1/articles');
-    const json = await response.json();
-    this.setState(
-      {
-        ...this.getState(),
-        list: json.result.items,
-      },
-      'Загружены товары из АПИ',
-    );
+  // Метод для загрузки товаров с учетом страницы
+  async load(page = 1) {
+    const { itemsPerPage } = this.getState();
+    const skip = (page - 1) * itemsPerPage;
+    const limit = itemsPerPage;
+  
+    try {
+      const response = await fetch(`/api/v1/articles?limit=${limit}&skip=${skip}&fields=items(_id,title,price),count`);
+      const json = await response.json();
+      
+      this.setState(
+        {
+          ...this.getState(),
+          list: json.result.items,
+          total: json.result.count, // Устанавливаем общее количество товаров
+          currentPage: page, // Установка текущей страницы
+        },
+        'Загружены товары из АПИ',
+      );
+    } catch (error) {
+      console.error("Ошибка при загрузке товаров:", error);
+    }
+  }
+
+  // Метод для изменения страницы
+  setPage(page) {
+    this.load(page);
   }
 }
 
