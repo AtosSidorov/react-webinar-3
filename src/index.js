@@ -2,7 +2,9 @@ import { createRoot } from 'react-dom/client';
 import App from './app';
 import Store from './store';
 import { StoreContext } from './store/context';
-import { LocaleProvider } from './store/localeContext';
+import localeContext from './store/localecontext';
+
+
 
 const store = new Store();
 

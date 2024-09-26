@@ -8,7 +8,10 @@ import List from '../../components/list';
 import Pagination from '../../components/pagination';
 import useStore from '../../store/use-store';
 import useSelector from '../../store/use-selector';
-import { useLocale } from '../../store/localeContext'; // Импортируем хук для работы с языком
+import localeContext from '../../store/localecontext';
+
+
+
 
 function Main() {
   const store = useStore();

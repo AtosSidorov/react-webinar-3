@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { cn as bem } from '@bem-react/classname';
 import { numberFormat } from '../../utils';
 import { Link } from 'react-router-dom'; 
-import { useLocale } from '../../store/localeContext'; 
+import localeContext from '../../store/localecontext';
+
+
 import './style.css';
 
 function Item(props) {
