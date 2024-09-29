@@ -8,14 +8,9 @@ import List from '../../components/list';
 import Pagination from '../../components/pagination';
 import useStore from '../../store/use-store';
 import useSelector from '../../store/use-selector';
-import localeContext from '../../store/localecontext';
-
-
-
 
 function Main() {
   const store = useStore();
-  const { translations, switchLanguage } = useLocale();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -40,7 +35,13 @@ function Main() {
   const renders = {
     item: useCallback(
       item => {
-        return <Item item={item} onAdd={callbacks.addToBasket} />;
+        return (
+          <Item 
+            item={item} 
+            onAdd={callbacks.addToBasket} 
+            itemLink={`/product/${item._id}`} // Передаем кастомную ссылку на товар
+          />
+        );
       },
       [callbacks.addToBasket],
     ),
@@ -48,7 +49,7 @@ function Main() {
 
   return (
     <PageLayout>
-      <Head title={translations.title} />
+      <Head title="Магазин" /> 
 
       <BasketTool 
         onOpen={callbacks.openModalBasket} 
@@ -65,12 +66,6 @@ function Main() {
         totalPages={totalPages} 
         onPageChange={setCurrentPage} 
       />
-
-      {/* Переключатели языков */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-        <button onClick={() => switchLanguage('ru')}>Русский</button>
-        <button onClick={() => switchLanguage('en')}>English</button>
-      </div>
     </PageLayout>
   );
 }

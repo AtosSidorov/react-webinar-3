@@ -18,10 +18,12 @@ function ItemBasket(props) {
     },
   };
 
+  const itemLink = props.itemLink || `/product/${props.item._id}`;
+
   return (
     <div className={cn()} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <Link 
-        to={`/product/${props.item._id}`} 
+        to={itemLink} 
         className={cn('link')} 
         onClick={callbacks.onLinkClick} 
         style={{ flexGrow: 1, textDecoration: 'none' }} 
@@ -48,11 +50,13 @@ ItemBasket.propTypes = {
     price: PropTypes.number,
     amount: PropTypes.number,
   }).isRequired,
+  itemLink: PropTypes.string, 
   onRemove: propTypes.func,
 };
 
 ItemBasket.defaultProps = {
   onRemove: () => {},
+  itemLink: '', 
 };
 
 export default memo(ItemBasket);

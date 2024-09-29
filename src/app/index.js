@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './main';
 import Basket from './basket';
-import ProductDetail from '../components/product-detail'; // Импорт страницы товара
+import ProductDetail from './product-detail';
 import useStore from '../store/use-store';
 import useSelector from '../store/use-selector';
 
