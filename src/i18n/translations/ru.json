@@ -16,5 +16,20 @@
     "few": "товара",
     "many": "товаров",
     "other": "товара"
+  },
+  "login": {
+    "title": "Вход",
+    "placeholder": {
+      "username": "Логин",
+      "password": "Пароль"
+    },
+    "button": "Войти"
+  },
+  "profile": {
+    "title": "Профиль",
+    "username": "Имя",
+    "email": "Электронная почта",
+    "phone": "Телефон",
+    "loadingError": "Ошибка при загрузке профиля"
   }
 }

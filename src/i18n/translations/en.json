@@ -14,5 +14,20 @@
   "basket.articles": {
     "one": "article",
     "other": "articles"
+  },
+  "login": {
+    "title": "Login",
+    "placeholder": {
+      "username": "Username",
+      "password": "Password"
+    },
+    "button": "Login"
+  },
+  "profile": {
+    "title": "Profile",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "loadingError": "Error loading profile"
   }
 }

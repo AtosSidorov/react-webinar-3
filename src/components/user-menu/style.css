@@ -1,0 +1,21 @@
+.user-menu {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 10px 20px;
+  }
+
+  .user-menu-link {
+    margin-right: 20px; 
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .user-menu-button {
+
+  }
+  
+  .user-menu-button:hover {
+    background-color: #ddd;
+  }
+  

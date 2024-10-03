@@ -8,12 +8,15 @@ import Head from '../../components/head';
 import CatalogFilter from '../../containers/catalog-filter';
 import CatalogList from '../../containers/catalog-list';
 import LocaleSelect from '../../containers/locale-select';
+import UserMenu from '../../components/user-menu'; 
+import { useNavigate } from 'react-router-dom'; 
 
 /**
  * Главная страница - первичная загрузка каталога
  */
 function Main() {
   const store = useStore();
+  const navigate = useNavigate(); 
 
   useInit(
     () => {
@@ -27,6 +30,7 @@ function Main() {
 
   return (
     <PageLayout>
+      <UserMenu /> 
       <Head title={t('title')}>
         <LocaleSelect />
       </Head>

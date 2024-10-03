@@ -16,6 +16,7 @@ class CatalogState extends StoreModule {
         limit: 10,
         sort: 'order',
         query: '',
+        category: 'all', 
       },
       count: 0,
       waiting: false,
@@ -40,18 +41,6 @@ class CatalogState extends StoreModule {
   }
 
   /**
-   * Сброс параметров к начальным
-   * @param [newParams] {Object} Новые параметры
-   * @return {Promise<void>}
-   */
-  async resetParams(newParams = {}) {
-    // Итоговые параметры из начальных, из URL и из переданных явно
-    const params = { ...this.initState().params, ...newParams };
-    // Установка параметров и загрузка данных
-    await this.setParams(params);
-  }
-
-  /**
    * Установка параметров и загрузка списка товаров
    * @param [newParams] {Object} Новые параметры
    * @param [replaceHistory] {Boolean} Заменить адрес (true) или новая запись в истории браузера (false)
@@ -70,7 +59,6 @@ class CatalogState extends StoreModule {
       'Установлены параметры каталога',
     );
 
-    // Сохранить параметры в адрес страницы
     let urlSearch = new URLSearchParams(params).toString();
     const url = window.location.pathname + '?' + urlSearch + window.location.hash;
     if (replaceHistory) {
@@ -87,6 +75,10 @@ class CatalogState extends StoreModule {
       'search[query]': params.query,
     };
 
+    if (params.category && params.category !== 'all') {
+      apiParams['search[category]'] = params.category;
+    }
+
     const response = await fetch(`/api/v1/articles?${new URLSearchParams(apiParams)}`);
     const json = await response.json();
     this.setState(
@@ -98,6 +90,13 @@ class CatalogState extends StoreModule {
       },
       'Загружен список товаров из АПИ',
     );
+  }
+
+  /**
+   * Сброс параметров каталога до начальных значений
+   */
+  resetParams() {
+    this.setParams(this.initState().params, true);
   }
 }
 
