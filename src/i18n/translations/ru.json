@@ -17,19 +17,15 @@
     "many": "товаров",
     "other": "товара"
   },
-  "login": {
-    "title": "Вход",
-    "placeholder": {
-      "username": "Логин",
-      "password": "Пароль"
-    },
-    "button": "Войти"
-  },
-  "profile": {
-    "title": "Профиль",
-    "username": "Имя",
-    "email": "Электронная почта",
-    "phone": "Телефон",
-    "loadingError": "Ошибка при загрузке профиля"
-  }
+  "logout": "Выйти",
+  "login.title": "Вход",
+  "login.placeholder.username": "Логин",
+  "login.placeholder.password": "Пароль",
+  "login.button": "Войти",
+
+  "profile.title": "Профиль",
+  "profile.username": "Имя",
+  "profile.email": "Электронная почта",
+  "profile.phone": "Телефон",
+  "profile.loadingError": "Ошибка при загрузке профиля"
 }

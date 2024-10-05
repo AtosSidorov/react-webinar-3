@@ -1,0 +1,32 @@
+.profile-content {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .profile-content p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-content p span {
+    font-weight: bold;
+  }
+  
+  .profile-content .email {
+    color: #333;
+  }
+  
+  .profile-content .phone {
+    color: #333;
+  }
+  
+  .profile-content .name {
+    color: #333;
+  }
+  

@@ -15,19 +15,15 @@
     "one": "article",
     "other": "articles"
   },
-  "login": {
-    "title": "Login",
-    "placeholder": {
-      "username": "Username",
-      "password": "Password"
-    },
-    "button": "Login"
-  },
-  "profile": {
-    "title": "Profile",
-    "username": "Username",
-    "email": "Email",
-    "phone": "Phone",
-    "loadingError": "Error loading profile"
-  }
+  "logout": "Logout",
+  "login.title": "Login",
+  "login.placeholder.username": "Username",
+  "login.placeholder.password": "Password",
+  "login.button": "Login",
+
+  "profile.title": "Profile",
+  "profile.username": "Username",
+  "profile.email": "Email",
+  "profile.phone": "Phone",
+  "profile.loadingError": "Error loading profile"
 }
